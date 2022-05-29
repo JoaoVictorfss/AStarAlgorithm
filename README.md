@@ -11,7 +11,8 @@
 7. Em Nó, adicionar função "mostrar_resultado" para mostrar ações até chegar no resultado;
 
 8. Na main, seguir o seguinte raciocínio(validar):
-
+     
+     ```py
      result = null
      do:         
        
@@ -29,4 +30,5 @@
        print("sem resultado")
      else:
        result.mostrar_resultado()
+```
      
