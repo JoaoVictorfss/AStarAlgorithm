@@ -1,6 +1,8 @@
 from models.Node import Node
-from utils.Border import Border
+from models.Border import Border
 from utils.Heuristics import Heuristics
+
+bordar = Border()
 
 #print("Digite a sequencia de números do jogo: ")
 #mod_inicial = crie_matriz(3,3)
