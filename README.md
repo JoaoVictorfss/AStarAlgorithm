@@ -24,7 +24,7 @@
        else:
           Border.adicionar_no_explorado(novo_no)
 
-     while(result == null || borda.size <= 9!) 
+     while(result is null and borda.size <= 9!) 
 
      if(result is null):
        print("sem resultado")
