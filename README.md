@@ -17,13 +17,12 @@
     no_raiz = Node()#no raiz
     no_raiz.expandir(Border)#estado inicial da borda
     result = null
-    do:          
+    while(result is null and Border.qtd < 9!/2):        
        if(Border.tem_no_resultado() == true):
           result = Border.obter_no_resultado()
        else:
          primeiro_no = Border.obter_primeiro_no()
          primeiro_no.expandir(Border)
-     while(result is null and Border.qtd < 9!/2) #9 !/2 é o maximo de nos a serem expandidos?
 
      if(result is null):
        print("sem resultado")
