@@ -4,7 +4,7 @@ class Node:
         self.matriz = matriz
         self.xb = xb
         self.yb = yb
-        self.node_pai = Node
+        self.node_pai = None
         self.movimento = []
         self.mov_qtd = 0
         self.g = 0 # g do pai + 1

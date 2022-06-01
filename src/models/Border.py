@@ -1,3 +1,6 @@
+from typing_extensions import Self
+
+
 class Border :
   def __init__(self) : 
       self.__nos = []
@@ -19,4 +22,12 @@ class Border :
   def obter_primeiro_no (self):
       primeiro_no = self.__nos[0][1]
       return primeiro_no
-    
+  
+  def tem_no_resultado(matrix_obj, self):
+      return (matrix_obj in self.__nos)
+ 
+  def obter_no_resultado(self, matrix):
+      for no in self.__nos:
+          if(matrix == no.matrix):
+              return no
+
