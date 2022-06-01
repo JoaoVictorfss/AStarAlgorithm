@@ -2,6 +2,7 @@ class Border :
   def __init__(self) : 
       self.__nos = []
       self.__explorados = []
+      self.qtd = 0
   
   def adicionar_no_explorado(self, no):
       novo_no_explorado = (no.f, no)
@@ -10,12 +11,12 @@ class Border :
   def adicionar_no(self, no):
      no_com_prioridade = (no.f, no)
      if no_com_prioridade not in self.__explorados:
+        self.qtd = self.qtd + 1
         self.__nos.append(no_com_prioridade)
         self.__nos.sort()
+        self.adicionar_no_explorado(no_com_prioridade)
   
-  def size (self):
-      return len(self.__nos)
-  
-  def first (self):
-      return self.__nos[0][1]
+  def obter_primeiro_no (self):
+      primeiro_no = self.__nos[0][1]
+      return primeiro_no
     
