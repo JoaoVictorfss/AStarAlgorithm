@@ -4,20 +4,16 @@ class Border :
       self.__explorados = []
       self.qtd = 0
   
-  def adicionar_no_explorado(self, no):
-      novo_no_explorado = (no.f, no)
-      self.__explorados.append(novo_no_explorado)
-  
   def adicionar_no(self, no):
      no_com_prioridade = (no.f, no)
      if no_com_prioridade not in self.__explorados:
         self.qtd = self.qtd + 1
         self.__nos.append(no_com_prioridade)
+        self.__explorados.append(no_com_prioridade)
         self.__nos.sort()
-        self.adicionar_no_explorado(no)
   
   def obter_primeiro_no (self):
-      primeiro_no = self.__nos[0][1]
+      primeiro_no = self.__nos.pop(0)[1]
       return primeiro_no
   
   def tem_no_resultado(matrix_obj, self):
@@ -27,4 +23,6 @@ class Border :
       for no in self.__nos:
           if(matrix == no.matrix):
               return no
-
+          
+  def total_de_nos(self):
+     return len(self.__nos)
