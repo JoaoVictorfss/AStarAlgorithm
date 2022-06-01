@@ -1,6 +1,3 @@
-from typing_extensions import Self
-
-
 class Border :
   def __init__(self) : 
       self.__nos = []
@@ -17,7 +14,7 @@ class Border :
         self.qtd = self.qtd + 1
         self.__nos.append(no_com_prioridade)
         self.__nos.sort()
-        self.adicionar_no_explorado(no_com_prioridade)
+        self.adicionar_no_explorado(no)
   
   def obter_primeiro_no (self):
       primeiro_no = self.__nos[0][1]
