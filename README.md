@@ -7,8 +7,8 @@
 3. Em Nó, adicionar função "mostrar_resultado" para mostrar ações até chegar no resultado;
 4. Em Border, criar função para adicionar nós "adicionar_no", não inserir nós repetidos, ou seja, os nós que estão no atributo "explorados"[v];
 5. Em Border, criar função "adicionar_no_explorado" para adicionar o nós a lista "explorados"[v];
-6. Em Border, criar função "obter_no_resultado" que retorna o primeiro nó em que a matrix é igual ao estado objetivo;
-7. Em Border, criar função "tem_no_resultado" para verificar se algum nó na borda tem a matriz igual ao estado objetivo e retornar um valor boleano;
+6. Em Border, criar função "obter_no_resultado" que retorna o primeiro nó em que a matrix é igual ao estado objetivo[v];
+7. Em Border, criar função "tem_no_resultado" para verificar se algum nó na borda tem a matriz igual ao estado objetivo e retornar um valor boleano[v];
 8. Em Border, criar função "obter_primeiro_no" para remover e retornar o primeiro nó(folha)[v];
 9. Em Border, criar atributo "qtd" para retornar a quantidade de nós expandios[v];
 10. Na main, seguir o seguinte raciocínio(validar):
