@@ -1,3 +1,5 @@
+from utils.Matriz import Matriz
+
 class Border :
   def __init__(self) : 
       self.__nos = []
@@ -19,7 +21,7 @@ class Border :
   def tem_no_resultado(self, matriz):
       contem_no = False
       for no in self.__nos:
-          if(no.compara_matrizes(matriz)):
+          if(Matriz.compara_matrizes(no.matriz, matriz)):
               contem_no = True
               break
       return contem_no
@@ -27,7 +29,7 @@ class Border :
   def obter_no_resultado(self, matriz):
       result = None
       for no in self.__nos:
-          if(no.compara_matrizes(matriz)):
+          if(Matriz.compara_matrizes(no.matriz, matriz)):
               result = no
               break
       return result

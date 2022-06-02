@@ -1,6 +1,5 @@
 from models.Node import Node
 from models.Border import Border
-from utils.Heuristics import Heuristics
 
 borda = Border()
 
