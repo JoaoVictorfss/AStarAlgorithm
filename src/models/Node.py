@@ -26,15 +26,18 @@ class Node:
     def mostrar_resultado(self):
         movimentos = []        
        
-        while(self.node_pai != None):
-            movimentos.append(self.movimento)
-
+        no = self   
+        do
+          movimentos.append(no.movimento)
+          no = no.node_pai
+        while(no.node_pai != None):
+            
         movimentos_em_ordem = movimentos[::-1]
        
         print("Passos para chegar no resultado:\n")   
         passo = 1
         for mov in movimentos_em_ordem:
-            print(f"{passo}. - Mova o branco para {mov}\n")
+            print(f"{passo} - Mova o branco para {mov}\n")
             passo += 1
             
     def expandir(self, borda):  
