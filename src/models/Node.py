@@ -36,21 +36,29 @@ class Node:
         return matriz
     
     def expandir(self, borda):  
-        matriz_baixo = self.__anda_baixo()
-        matriz_cima = self.__anda_cima()
-        matriz_direita = self.__anda_direita()
-        matriz_esquerda = self.__anda_esquerda()
+        #Expande para baixo
+        if(self.xb + 1 <= 2):
+          matriz_baixo = self.__anda_baixo()
+          no_baixo = self.__cria_no(matriz_baixo, self.xb + 1, self.yb, "baixo", 1 )
+          borda.adicionar_no(no_baixo)
         
-        #valores de f são para testes, o calculo deve ser feito
-        no_baixo = self.__cria_no(matriz_baixo, self.xb + 1, self.yb, "baixo", 1 )
-        no_cima = self.__cria_no(matriz_cima, self.xb - 1, self.yb, "cima", 2)
-        no_direita = self.__cria_no(matriz_direita, self.xb, self.yb + 1, "direita", 3)
-        no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda", 4)
+        #Expande para cima
+        if(self.xb - 1 >= 0):
+          matriz_cima = self.__anda_cima()
+          no_cima = self.__cria_no(matriz_cima, self.xb - 1, self.yb, "cima", 2)
+          borda.adicionar_no(no_cima)
         
-        borda.adicionar_no(no_baixo)
-        borda.adicionar_no(no_cima)
-        borda.adicionar_no(no_direita)
-        borda.adicionar_no(no_esquerda)
+        #Expande para direita
+        if(self.yb + 1 <= 2):
+          matriz_direita = self.__anda_direita()
+          no_direita = self.__cria_no(matriz_direita, self.xb, self.yb + 1, "direita", 3)
+          borda.adicionar_no(no_direita)
+          
+        #Expande para esquerda
+        if(self.yb - 1 >= 0) :
+          matriz_esquerda = self.__anda_esquerda()
+          no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda", 4)
+          borda.adicionar_no(no_esquerda)  
         
     def compara_matrizes(self, no):
         matriz1 = np.array(self.matriz)
@@ -63,8 +71,7 @@ class Node:
        novo_no.g = self.g + 1
        novo_no.h = h
        novo_no.f = novo_no.g + novo_no.h
-       novo_no.movimento = movimento
-       
+       novo_no.movimento = movimento    
        return novo_no
        
     def __anda_baixo(self):
