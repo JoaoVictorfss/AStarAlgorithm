@@ -24,14 +24,14 @@ class Node:
         )
     
     def mostrar_resultado(self):
-        movimentos = []        
-       
+        movimentos = []           
         no = self   
-        do:
+        
+        while(no.node_pai != None):
           movimentos.append(no.movimento)
           no = no.node_pai
-        while(no.node_pai != None)
-            
+        movimentos.append(no.movimento)
+        
         movimentos_em_ordem = movimentos[::-1]
        
         print("Passos para chegar no resultado:\n")   
