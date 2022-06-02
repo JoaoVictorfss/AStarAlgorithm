@@ -9,6 +9,7 @@ class Matriz:
             linha += [input()]
             for i in linha:
                 linha = i.split(',')
+                linha = [int(l.strip()) for l in linha]
             matriz += [linha]
         return matriz
 
@@ -20,16 +21,16 @@ class Matriz:
     
     @staticmethod
     def acha_branco(matriz_inicial):
-        x=0
-        xb =0
-        yb=0
+        x = 0
+        xb = 0
+        yb = 0
         for i in matriz_inicial:
-            y=0
-        for j in i:
-            if(j == 0 ):
-                xb = x
-                yb = y
-                break
-            y += 1                
-        x += 1
+            y = 0
+            for j in i:
+                if(j == 0 ):
+                    xb = x
+                    yb = y
+                    break
+                y += 1                
+            x += 1
         return [xb,yb]

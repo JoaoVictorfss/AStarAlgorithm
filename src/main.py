@@ -3,6 +3,7 @@ from models.Border import Border
 from utils.Matriz import Matriz
 
 def resultado(borda, matriz_obj, no_inicial):
+  print("Entrei")
   no_inicial.expandir(borda)#estado inicial da borda
   result = None
   while(result is None and borda.qtd < 181440):        
