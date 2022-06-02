@@ -1,14 +1,17 @@
 from utils.Matriz import Matriz
+from utils.Heuristics import Heuristics
 
 class Border :
-  def __init__(self) : 
+  def __init__(self, h_escolhido) : 
       self.__nos = []
       self.__explorados = []
       self.qtd = 0
+      self.h_escolhido = h_escolhido
   
   def adicionar_no(self, no):
-     no_com_prioridade = (no.f, no)
-     if no_com_prioridade not in self.__explorados:
+    self.__resultado_heuristica(no)
+    no_com_prioridade = (no.f, no)
+    if no_com_prioridade not in self.__explorados:
         self.qtd = self.qtd + 1
         self.__nos.append(no_com_prioridade)
         self.__explorados.append(no_com_prioridade)
@@ -36,3 +39,10 @@ class Border :
           
   def total_de_nos(self):
      return len(self.__nos)
+
+  def __resultado_heuristica(self, no):
+      if(self.h_escolhido == 1):
+          no.h = Heuristics.h1(no.matriz)
+      elif(self.h_escolhido == 2):
+          no.h = Heuristics.h2(no.matriz)
+      no.f = no.g + no.h

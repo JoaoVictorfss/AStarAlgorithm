@@ -41,33 +41,31 @@ class Node:
         #Expande para baixo
         if(self.xb + 1 <= 2):
           matriz_baixo = self.__anda_baixo()
-          no_baixo = self.__cria_no(matriz_baixo, self.xb + 1, self.yb, "baixo", 1 )
+          no_baixo = self.__cria_no(matriz_baixo, self.xb + 1, self.yb, "baixo")
           borda.adicionar_no(no_baixo)
         
         #Expande para cima
         if(self.xb - 1 >= 0):
           matriz_cima = self.__anda_cima()
-          no_cima = self.__cria_no(matriz_cima, self.xb - 1, self.yb, "cima", 2)
+          no_cima = self.__cria_no(matriz_cima, self.xb - 1, self.yb, "cima")
           borda.adicionar_no(no_cima)
         
         #Expande para direita
         if(self.yb + 1 <= 2):
           matriz_direita = self.__anda_direita()
-          no_direita = self.__cria_no(matriz_direita, self.xb, self.yb + 1, "direita", 3)
+          no_direita = self.__cria_no(matriz_direita, self.xb, self.yb + 1, "direita")
           borda.adicionar_no(no_direita)
           
         #Expande para esquerda
         if(self.yb - 1 >= 0) :
           matriz_esquerda = self.__anda_esquerda()
-          no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda", 4)
+          no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda")
           borda.adicionar_no(no_esquerda)  
             
-    def __cria_no(self, matriz, xb, yb, movimento, h):
+    def __cria_no(self, matriz, xb, yb, movimento):
        novo_no = Node(matriz, xb, yb)
        novo_no.node_pai = self
        novo_no.g = self.g + 1
-       novo_no.h = h
-       novo_no.f = novo_no.g + novo_no.h
        novo_no.movimento = movimento    
        return novo_no
        
