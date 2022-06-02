@@ -42,7 +42,7 @@ matriz_escolha = input()
 
 # pega a matriz inicial
 print("\nDigite a sequencia de números do jogo: ")
-matriz_inicial = Matriz.crie_matriz(3,3)
+matriz_inicial = Matriz.crie_matriz(3)
 
 pos_branco = Matriz.acha_branco(matriz_inicial)
 
