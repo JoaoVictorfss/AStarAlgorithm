@@ -16,8 +16,8 @@
      ```py
     no_raiz = Node()#no raiz
     no_raiz.expandir(Border)#estado inicial da borda
-    result = null
-    while(result is null and Border.qtd < 9!/2):        
+    result = None
+    while(result is None and Border.qtd < 9!/2):        
        if(Border.tem_no_resultado() == true):
           result = Border.obter_no_resultado()
        else:
