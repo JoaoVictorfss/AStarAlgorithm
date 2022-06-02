@@ -16,13 +16,21 @@ class Border :
       primeiro_no = self.__nos.pop(0)[1]
       return primeiro_no
   
-  def tem_no_resultado(matrix_obj, self):
-      return (matrix_obj in self.__nos)
- 
-  def obter_no_resultado(self, matrix):
+  def tem_no_resultado(self, matriz):
+      contem_no = False
       for no in self.__nos:
-          if(matrix == no.matrix):
-              return no
+          if(no.compara_matrizes(matriz)):
+              contem_no = True
+              break
+      return contem_no
+ 
+  def obter_no_resultado(self, matriz):
+      result = None
+      for no in self.__nos:
+          if(no.compara_matrizes(matriz)):
+              result = no
+              break
+      return result
           
   def total_de_nos(self):
      return len(self.__nos)
