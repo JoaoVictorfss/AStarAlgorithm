@@ -3,7 +3,7 @@
 ## To do
 
 1. Obter o estado objetivo e guardar para comparação;
-2. Em Nó, adicionar função para expandir nó "expandir", calcular h, incrementar g(g do pai mais + 1, quando o pai for diferente de null), movimentar(chamar as funções andar_cima, andar_baixo, andar_esquerda e andar_direita) e adicionar os nos expandidos na borda;
+2. Em Nó, adicionar função para expandir nó "expandir", calcular h, incrementar g(g do pai mais + 1, quando o pai for diferente de null), movimentar(chamar as funções andar_cima, andar_baixo, andar_esquerda e andar_direita) e adicionar os nos expandidos na borda[v];
 3. Em Nó, adicionar função "mostrar_resultado" para mostrar ações até chegar no resultado;
 4. Em Border, criar função para adicionar nós "adicionar_no", não inserir nós repetidos, ou seja, os nós que estão no atributo "explorados"[v];
 5. Em Border, criar função "adicionar_no_explorado" para adicionar o nós a lista "explorados"[v];
