@@ -22,7 +22,21 @@ class Node:
                   self.movimento == outro_no.movimento and 
                   Matriz.compara_matrizes(self.matriz, outro_no.matriz)
         )
-        
+    
+    def mostrar_resultado(self):
+        movimentos = []        
+       
+        while(self.node_pai != None):
+            movimentos.append(self.movimento)
+
+        movimentos_em_ordem = movimentos[::-1]
+       
+        print("Passos para chegar no resultado:\n")   
+        passo = 1
+        for mov in movimentos_em_ordem:
+            print(f"{passo}. - Mova o branco para {mov}\n")
+            passo += 1
+            
     def expandir(self, borda):  
         #Expande para baixo
         if(self.xb + 1 <= 2):
