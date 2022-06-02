@@ -21,7 +21,7 @@ class Node:
                   self.f == outro_no.f and 
                   self.h == outro_no.h and 
                   self.g == outro_no.g and
-                  self.mov_qtd == outro_no.mov_qtd and 
+                  self.movimento == outro_no.movimento and 
                  (matriz1 == matriz2).all() #comparação de matrizes
         )
         
