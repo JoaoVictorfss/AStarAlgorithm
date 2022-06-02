@@ -27,10 +27,10 @@ class Node:
         movimentos = []        
        
         no = self   
-        do
+        do:
           movimentos.append(no.movimento)
           no = no.node_pai
-        while(no.node_pai != None):
+        while(no.node_pai != None)
             
         movimentos_em_ordem = movimentos[::-1]
        
