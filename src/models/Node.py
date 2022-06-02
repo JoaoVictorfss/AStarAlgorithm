@@ -1,5 +1,6 @@
-import numpy as np
 from copy import deepcopy
+from utils.Heuristics import Heuristics
+from utils.Matriz import Matriz
 
 class Node:
     def __init__(self, matriz, xb, yb):
@@ -13,28 +14,15 @@ class Node:
         self.f = self.g + self.h 
 
     def __eq__(self, outro_no):
-        matriz1 = np.array(self.matriz)
-        matriz2 = np.array(outro_no.matriz)
-        
         return (self.xb == outro_no.xb and 
                   self.yb == outro_no.yb and 
                   self.f == outro_no.f and 
                   self.h == outro_no.h and 
                   self.g == outro_no.g and
                   self.movimento == outro_no.movimento and 
-                 (matriz1 == matriz2).all() #comparação de matrizes
+                  Matriz.compara_matrizes(self.matriz, outro_no.matriz)
         )
         
-    def crie_matriz(n_linhas, n_colunas):
-        matriz = []
-        for i in range(n_linhas):
-            linha = []
-            linha += [input()]
-            for i in linha:
-                linha = i.split(',')
-            matriz += [linha]
-        return matriz
-    
     def expandir(self, borda):  
         #Expande para baixo
         if(self.xb + 1 <= 2):
@@ -59,12 +47,7 @@ class Node:
           matriz_esquerda = self.__anda_esquerda()
           no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda", 4)
           borda.adicionar_no(no_esquerda)  
-        
-    def compara_matrizes(self, no):
-        matriz1 = np.array(self.matriz)
-        matriz2 = np.array(no.matriz)
-        return (matriz1 == matriz2).all()
-    
+            
     def __cria_no(self, matriz, xb, yb, movimento, h):
        novo_no = Node(matriz, xb, yb)
        novo_no.node_pai = self
