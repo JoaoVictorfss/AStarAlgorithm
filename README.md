@@ -1,4 +1,5 @@
 # A* Algoritmo
+<img src="https://github.com/JoaoVictorfss/AStarAlgorithm/blob/master/public/photos/Captura%20de%20tela%20de%202022-06-02%2022-48-53.png">
 
 ## Para testar:
 1. Instale as dependencias e execute o programa:
