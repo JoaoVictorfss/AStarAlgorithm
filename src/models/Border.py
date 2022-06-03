@@ -1,31 +1,32 @@
+import heapq
+
 from utils.Matriz import Matriz
 from utils.Heuristics import Heuristics
 
 class Border :
-  def __init__(self, h_escolhido) : 
+  def __init__(self, h_escolhido, matriz_obj):
+      self.__matriz_obj = matriz_obj
+      self.__h_escolhido = h_escolhido
       self.__nos = []
       self.__explorados = []
       self.qtd_gerados = 0
       self.qtd_explorados = 0
-      self.h_escolhido = h_escolhido
   
   def adicionar_no(self, no):
     self.__resultado_heuristica(no)
     self.qtd_gerados = self.qtd_gerados + 1
     if no not in self.__explorados:
-        self.__nos.append(no)
-        self.__nos.sort(key=self.__ordernar)
+        heapq.heappush(self.__nos, (-no.f, self.qtd_explorados, no))
         self.__explorados.append(no)      
         self.qtd_explorados = self.qtd_explorados + 1
    
   def obter_primeiro_no (self):
-      primeiro_no = self.__nos.pop(0)
-      return primeiro_no
+      return heapq.heappop(self.__nos)[-1]
   
   def tem_no_resultado(self, matriz):
       contem_no = False
       for no in self.__nos:
-          if(Matriz.compara_matrizes(no.matriz, matriz)):
+          if(Matriz.compara_matrizes(no[-1].matriz, matriz)):
               contem_no = True
               break
       return contem_no
@@ -33,24 +34,23 @@ class Border :
   def obter_no_resultado(self, matriz):
       result = None
       for no in self.__nos:
-          if(Matriz.compara_matrizes(no.matriz, matriz)):
+          if(Matriz.compara_matrizes(no[-1].matriz, matriz)):
               result = no
               break
-      return result
+      return result[-1]
           
   def total_de_nos(self):
      return len(self.__nos)
 
   def __resultado_heuristica(self, no):
-      if(self.h_escolhido == 1):
-          no.h = Heuristics.h1(no.matriz)
-      elif(self.h_escolhido == 2):
-          no.h = Heuristics.h2(no.matriz)
+      if(self.__h_escolhido == 1):
+          no.h = Heuristics.h1(no.matriz, self.__matriz_obj)
+      elif(self.__h_escolhido == 2):
+          no.h = Heuristics.h2(no.matriz, self.__matriz_obj)
+    
       no.f = no.g + no.h
 
   def mostrar_matrizes_na_borda(self):
     for n in self.__nos:
         print(n.matriz)
-        
-  def __ordernar(self, no):
-      return no.f
+    

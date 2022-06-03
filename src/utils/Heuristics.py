@@ -1,5 +1,5 @@
 class Heuristics:
-    #heuristica que conta quantos numeros estão fora do lugar
+    @staticmethod
     def h1(matriz_init, matriz_obj):
         contador = 0
         for i in range(3):
@@ -10,7 +10,7 @@ class Heuristics:
 
         return contador
 
-    # Distãncia de Manhattan - Heurística 2
+    @staticmethod
     def h2(matriz_init, matriz_obj):
         dist = 0
         for i in range(3):

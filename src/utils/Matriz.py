@@ -2,6 +2,11 @@ import numpy as np
 
 class Matriz:
     @staticmethod
+    def mostra_matriz(matriz):
+           for i in matriz:
+             print(i)
+           
+    @staticmethod
     def crie_matriz(n_linhas):
         matriz = []
         for i in range(n_linhas):

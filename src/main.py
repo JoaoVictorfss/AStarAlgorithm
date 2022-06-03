@@ -2,9 +2,45 @@ from models.Node import Node
 from models.Border import Border
 from utils.Matriz import Matriz
 
+MAX = 181440
+
+def main():
+    matriz_obj_1 = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
+    matriz_obj_2 = [[0,1,2],[3,4,5],[6,7,8]]
+    
+    coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2)
+    
+def coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2):
+    print("\nDigite qual a heuristica para ser usada no jogo: ")
+    print("Distancia Euclidiana. (Digite 1)")
+    print("Distancia de Manhattan. (Digite 2)\n")
+    num_h = input()
+
+    print("\nDigite qual o resultado do jogo desejado: ")
+    print("Primeiro resultado:(Digite 1)")
+    Matriz.mostra_matriz(matriz_obj_1)
+      
+    print("\nSegundo resultado:(Digite 2)")
+    Matriz.mostra_matriz(matriz_obj_2)
+    print()
+    matriz_escolha = int(input().strip())
+
+    print("\nDigite a sequencia de números do jogo: ")
+    matriz_inicial = Matriz.crie_matriz(3)
+    
+    matriz_obj = matriz_obj_1 if matriz_escolha == 1 else matriz_obj_2
+    borda = Border(int(num_h.strip()), matriz_obj)
+    pos_branco = Matriz.acha_branco(matriz_inicial)
+    no_inicial = Node(matriz_inicial, pos_branco[0], pos_branco[1])
+    borda.adicionar_no(no_inicial)
+    
+    print("\nIsso pode demorar um pouquinho. Enquanto isso, recomendamos buscar um café!!\n")
+    
+    resultado(borda, matriz_obj)
+      
 def resultado(borda, matriz_obj):
   result = None
-  while(result is None and borda.qtd_gerados < 181440):
+  while(result is None and borda.qtd_gerados < MAX):
     if(borda.tem_no_resultado(matriz_obj)):
       result = borda.obter_no_resultado(matriz_obj)
     else:
@@ -21,41 +57,4 @@ def resultado(borda, matriz_obj):
   print(f"Quantidade de nós criados: {borda.qtd_gerados}\n")
   print(f"Quantidade de nós explorados: {borda.qtd_explorados}")
 
-# Matrizes objetivos do programa
-matriz_obj_1 = [[1,2,3],[4,5,6],[7,8,0]]
-matriz_obj_2 = [[0,1,2],[3,4,5],[6,7,8]]
-
-# pega a heuritica
-print("\nDigite qual a heuristica para ser usada no jogo: ")
-print("Distancia Euclidiana. (Digite 1)\n")
-print("Distancia de Manhattan. (Digite 2)")
-num_h = input()
-
-# pega a matriz objetivo
-print("\nDigite qual o resultado do jogo desejado: ")
-print("\nPrimeiro resultado:(Digite 1)")
-for i in matriz_obj_1:
-  print(i)
-
-print("\nSegundo resultado:(Digite 2)")
-for i in matriz_obj_2:
-  print(i)
-
-matriz_escolha = int(input().strip())
-
-# pega a matriz inicial
-print("\nDigite a sequencia de números do jogo: ")
-matriz_inicial = Matriz.crie_matriz(3)
-
-pos_branco = Matriz.acha_branco(matriz_inicial)
-
-# cria a borda e o nó inicial
-borda = Border(num_h)
-no_inicial = Node(matriz_inicial, pos_branco[0], pos_branco[1])
-borda.adicionar_no(no_inicial)
-
-print("\nIsso pode demorar um pouquinho, enquanto isso, recomendamos buscar um café!!\n")
-if(matriz_escolha == 1):
-  resultado(borda, matriz_obj_1)
-elif(matriz_escolha == 2):
-  resultado(borda, matriz_obj_2)
+main()
