@@ -5,16 +5,18 @@ class Border :
   def __init__(self, h_escolhido) : 
       self.__nos = []
       self.__explorados = []
-      self.qtd = 0
+      self.qtd_gerados = 0
+      self.qtd_explorados = 0
       self.h_escolhido = h_escolhido
   
   def adicionar_no(self, no):
     self.__resultado_heuristica(no)
+    self.qtd_gerados = self.qtd_gerados + 1
     if no not in self.__explorados:
         self.__nos.append(no)
         self.__nos.sort(key=self.__ordernar)
         self.__explorados.append(no)      
-        self.qtd = self.qtd + 1
+        self.qtd_explorados = self.qtd_explorados + 1
    
   def obter_primeiro_no (self):
       primeiro_no = self.__nos.pop(0)

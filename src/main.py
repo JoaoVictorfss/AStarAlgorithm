@@ -4,8 +4,7 @@ from utils.Matriz import Matriz
 
 def resultado(borda, matriz_obj):
   result = None
-  while(result is None and borda.qtd < 181440):
-    print(f"Quantidade de nós expandidos: {borda.qtd}")
+  while(result is None and borda.qtd_gerados < 181440):
     if(borda.tem_no_resultado(matriz_obj)):
       result = borda.obter_no_resultado(matriz_obj)
     else:
@@ -19,7 +18,8 @@ def resultado(borda, matriz_obj):
   else:
     result.mostrar_resultado()
   
-  print(f"Quantidade de nós criados: {borda.qtd - 1}")
+  print(f"Quantidade de nós criados: {borda.qtd_gerados}\n")
+  print(f"Quantidade de nós explorados: {borda.qtd_explorados}")
 
 # Matrizes objetivos do programa
 matriz_obj_1 = [[1,2,3],[4,5,6],[7,8,0]]
