@@ -1,4 +1,4 @@
-Teste iniciado em 03/06/2022 às 18:18:44
+Teste iniciado em 03/06/2022 às 18:23:15
 Matriz objetivo:
 |1 |  2 |  3|
 |4 |  5 |  6|
@@ -43,5 +43,6 @@ Resultado encontrado:
 Movimentos: 'direita'
 Quantidade de nós criados: 4
 Quantidade de nós explorados: 4
+Quantidade de nós na borda: 3
 
-Teste finalizado em 03/06/2022 às 18:18:45
+Teste finalizado em 03/06/2022 às 18:23:15

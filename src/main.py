@@ -67,6 +67,8 @@ def resultado(borda, matriz_obj, nome_arquivo_log):
   horario = datetime.now()
   Log.escrever_em_log_criado(nome_arquivo_log, f"\nQuantidade de nós criados: {borda.qtd_gerados}\n")
   Log.escrever_em_log_criado(nome_arquivo_log, f"Quantidade de nós explorados: {borda.qtd_explorados}\n")
+  Log.escrever_em_log_criado(
+      nome_arquivo_log, f"Quantidade de nós na borda: {borda.total_de_nos()}\n")
   Log.escrever_em_log_criado(nome_arquivo_log, "\nTeste finalizado em " + horario.strftime("%d/%m/%Y às %H:%M:%S") + "\n")
 
   print(f"\nQuantidade de nós criados: {borda.qtd_gerados}")
