@@ -10,15 +10,14 @@ class Border :
   
   def adicionar_no(self, no):
     self.__resultado_heuristica(no)
-    no_com_prioridade = (no.f, no)
-    if no_com_prioridade not in self.__explorados:
+    if no not in self.__explorados:
+        self.__nos.append(no)
+        self.__nos.sort(key=self.__ordernar)
+        self.__explorados.append(no)      
         self.qtd = self.qtd + 1
-        self.__nos.append(no_com_prioridade)
-        self.__explorados.append(no_com_prioridade)
-        self.__nos.sort()
-  
+   
   def obter_primeiro_no (self):
-      primeiro_no = self.__nos.pop(0)[1]
+      primeiro_no = self.__nos.pop(0)
       return primeiro_no
   
   def tem_no_resultado(self, matriz):
@@ -46,3 +45,10 @@ class Border :
       elif(self.h_escolhido == 2):
           no.h = Heuristics.h2(no.matriz)
       no.f = no.g + no.h
+
+  def mostrar_matrizes_na_borda(self):
+    for n in self.__nos:
+        print(n.matriz)
+        
+  def __ordernar(self, no):
+      return no.f

@@ -14,6 +14,8 @@ class Node:
         self.f = self.g + self.h 
 
     def __eq__(self, outro_no):
+        if(outro_no is None):
+          return False
         return (self.xb == outro_no.xb and 
                   self.yb == outro_no.yb and 
                   self.f == outro_no.f and 
@@ -22,23 +24,24 @@ class Node:
                   self.movimento == outro_no.movimento and 
                   Matriz.compara_matrizes(self.matriz, outro_no.matriz)
         )
+          
     
     def mostrar_resultado(self):
-        movimentos = []           
         no = self   
-        
-        while(no.node_pai != None):
-          movimentos.append(no.movimento)
-          no = no.node_pai
-        movimentos.append(no.movimento)
-        
-        movimentos_em_ordem = movimentos[::-1]
-       
-        print("Passos para chegar no resultado:\n")   
         passo = 1
-        for mov in movimentos_em_ordem:
-            print(f"{passo} - Mova o branco para {mov}\n")
-            passo += 1
+        movimentos = []           
+        
+        print("Passos para chegar no resultado:\n")   
+        while(no.node_pai != None):
+            movimentos.append(no.movimento)
+            no = no.node_pai
+        if(len(movimentos) == 0):
+          print("Não faça nada")
+        else:
+          movimentos_em_ordem = movimentos[::-1]
+          for mov in movimentos_em_ordem:
+              print(f"{passo} - Mova o branco para {mov}\n")
+              passo += 1
             
     def expandir(self, borda):  
         #Expande para baixo
@@ -64,7 +67,7 @@ class Node:
           matriz_esquerda = self.__anda_esquerda()
           no_esquerda = self.__cria_no(matriz_esquerda, self.xb, self.yb - 1, "esquerda")
           borda.adicionar_no(no_esquerda)  
-            
+          
     def __cria_no(self, matriz, xb, yb, movimento):
        novo_no = Node(matriz, xb, yb)
        novo_no.node_pai = self
