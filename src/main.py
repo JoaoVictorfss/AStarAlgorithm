@@ -11,6 +11,8 @@ def resultado(borda, matriz_obj):
     else:
       primeiro_no = borda.obter_primeiro_no()
       primeiro_no.expandir(borda)
+    
+  print("\n")
   if(result is None):
     print("sem resultado")
     return
