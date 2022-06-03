@@ -5,7 +5,7 @@ class Matriz:
     def to_string(matriz):
         matriz_str = ''
         for i in matriz:
-            matriz_str += f"{i}".replace(","," | ").replace("[", "|").replace("]", "|") + "\n"
+            matriz_str += f"{i}".replace(","," | ").replace("[", "| ").replace("]", " |") + "\n"
         return matriz_str
         
     @staticmethod
