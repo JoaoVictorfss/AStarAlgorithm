@@ -5,7 +5,7 @@ from utils.Matriz import Matriz
 def resultado(borda, matriz_obj):
   result = None
   while(result is None and borda.qtd < 181440):
-    print(borda.qtd)
+    print(f"Quantidade de nós expandidos: {borda.qtd}")
     if(borda.tem_no_resultado(matriz_obj)):
       result = borda.obter_no_resultado(matriz_obj)
     else:
