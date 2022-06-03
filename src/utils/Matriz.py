@@ -2,6 +2,13 @@ import numpy as np
 
 class Matriz:
     @staticmethod
+    def to_string(matriz):
+        matriz_str = ''
+        for i in matriz:
+            matriz_str += f"{i}".replace(","," | ").replace("[", "|").replace("]", "|") + "\n"
+        return matriz_str
+        
+    @staticmethod
     def mostra_matriz(matriz):
            for i in matriz:
              print(i)

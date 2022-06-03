@@ -1,6 +1,7 @@
 from copy import deepcopy
-from utils.Heuristics import Heuristics
 from utils.Matriz import Matriz
+
+from utils.Log import Log
 
 class Node:
     def __init__(self, matriz, xb, yb):
@@ -25,24 +26,25 @@ class Node:
                   Matriz.compara_matrizes(self.matriz, outro_no.matriz)
         )
           
-    
-    def mostrar_resultado(self):
-        no = self   
+    def mostrar_resultado(self, nome_arquivo_log):
+        no = self
         passo = 1
         movimentos = []           
         
-        print("Passos para chegar no resultado:\n")   
+        print("Passos para chegar no resultado:")   
         while(no.node_pai != None):
             movimentos.append(no.movimento)
             no = no.node_pai
         if(len(movimentos) == 0):
-          print("Não faça nada")
+          print("  Não faça nada")
+          Log.escrever_em_log_criado(nome_arquivo_log, "\nMovimentos: Não faça nada")
         else:
           movimentos_em_ordem = movimentos[::-1]
           for mov in movimentos_em_ordem:
-              print(f"{passo} - Mova o branco para {mov}\n")
-              passo += 1
-            
+              print(f"  {passo} - Mova o branco para {mov}")
+              passo += 1         
+          Log.escrever_em_log_criado(nome_arquivo_log, "Movimentos: " + f"{movimentos_em_ordem}".replace("[", "").replace("]", ""))
+          
     def expandir(self, borda):  
         #Expande para baixo
         if(self.xb + 1 <= 2):

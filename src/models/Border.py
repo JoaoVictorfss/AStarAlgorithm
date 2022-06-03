@@ -2,11 +2,13 @@ import heapq
 
 from utils.Matriz import Matriz
 from utils.Heuristics import Heuristics
+from utils.Log import Log
 
 class Border :
-  def __init__(self, h_escolhido, matriz_obj):
+  def __init__(self, h_escolhido, matriz_obj, nome_arquivo_log):
       self.__matriz_obj = matriz_obj
       self.__h_escolhido = h_escolhido
+      self.__nome_arquivo_log = nome_arquivo_log
       self.__nos = []
       self.__explorados = []
       self.qtd_gerados = 0
@@ -19,7 +21,8 @@ class Border :
         heapq.heappush(self.__nos, (-no.f, self.qtd_explorados, no))
         self.__explorados.append(no)      
         self.qtd_explorados = self.qtd_explorados + 1
-   
+        self.__escrever_logs(no)
+        
   def obter_primeiro_no (self):
       return heapq.heappop(self.__nos)[-1]
   
@@ -53,4 +56,8 @@ class Border :
   def mostrar_matrizes_na_borda(self):
     for n in self.__nos:
         print(n.matriz)
-    
+
+  def __escrever_logs(self, no):
+        Log.escrever_em_log_criado(self.__nome_arquivo_log, "\nNovo nó adicionado:\n")
+        Log.escrever_em_log_criado(self.__nome_arquivo_log, f"Matriz: \n{Matriz.to_string(no.matriz)}")
+        Log.escrever_em_log_criado(self.__nome_arquivo_log, f"f: {no.f}\n")
