@@ -37,21 +37,23 @@ class Node:
     def mostrar_resultado(self, nome_arquivo_log):
         no = self
         passo = 1
-        movimentos = []           
+        nos_com_resultado = []           
         
-        print("Passos para chegar no resultado:")   
+        print("\nPassos para chegar no resultado:")   
         while(no is not None and no.node_pai is not None):
-            movimentos.append(no.movimento)
+            nos_com_resultado.append(no)
             no = no.node_pai
-        if(len(movimentos) == 0):
+        if(len(nos_com_resultado) == 0):
           print("  Não faça nada")
-          Log.escrever_em_log_criado(nome_arquivo_log, "\nMovimentos: Não faça nada")
+          Log.escrever_em_log_criado(nome_arquivo_log, "\nMovimentos: Não faça nada\n")
         else:
-          movimentos_em_ordem = movimentos[::-1]
-          for mov in movimentos_em_ordem:
-              print(f"  {passo} - Mova o branco para {mov}")
+          nos_em_ordem = nos_com_resultado[::-1]
+          for no in nos_em_ordem:
+              print(f"{passo} - Mova o branco para {no.movimento}\n")
+              print(f"{Matriz.to_string(no.matriz)}")
+              Log.escrever_em_log_criado(nome_arquivo_log, f"{passo} - Mova o branco para {no.movimento}\n")
+              Log.escrever_em_log_criado(nome_arquivo_log, Matriz.to_string(no.matriz) + "\n")
               passo += 1         
-          Log.escrever_em_log_criado(nome_arquivo_log, "Movimentos: " + f"{movimentos_em_ordem}".replace("[", "").replace("]", ""))
           
     def expandir(self, borda):  
         #Expande para baixo

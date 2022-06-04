@@ -5,10 +5,9 @@ from utils.Heuristics import Heuristics
 from utils.Log import Log
 
 class Border :
-  def __init__(self, h_escolhido, matriz_obj, nome_arquivo_log):
+  def __init__(self, h_escolhido, matriz_obj):
       self.__matriz_obj = matriz_obj
       self.__h_escolhido = h_escolhido
-      self.__nome_arquivo_log = nome_arquivo_log
       self.__nos = PriorityQueue()
       self.__qtd_nos = 0
       self.__explorados = []
@@ -23,7 +22,6 @@ class Border :
         self.__explorados.append(no)      
         self.qtd_explorados = self.qtd_explorados + 1
         self.__qtd_nos += 1
-        self.__escrever_logs(no)
         
   def obter_primeiro_no (self):
         self.__qtd_nos -= 1
@@ -44,8 +42,3 @@ class Border :
   def mostrar_matrizes_na_borda(self):
     for n in self.__nos:
         print(n.matriz)
-
-  def __escrever_logs(self, no):
-        Log.escrever_em_log_criado(self.__nome_arquivo_log, "\nNovo nó adicionado:\n")
-        Log.escrever_em_log_criado(self.__nome_arquivo_log, f"Matriz: \n{Matriz.to_string(no.matriz)}")
-        Log.escrever_em_log_criado(self.__nome_arquivo_log, f"f: {no.f}\n")
