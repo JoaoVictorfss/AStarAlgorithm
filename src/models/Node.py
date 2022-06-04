@@ -17,22 +17,30 @@ class Node:
     def __eq__(self, outro_no):
         if(outro_no is None):
           return False
-        return (self.xb == outro_no.xb and 
-                  self.yb == outro_no.yb and 
-                  self.f == outro_no.f and 
-                  self.h == outro_no.h and 
-                  self.g == outro_no.g and
-                  self.movimento == outro_no.movimento and 
-                  Matriz.compara_matrizes(self.matriz, outro_no.matriz)
-        )
-          
+        return Matriz.compara_matrizes(self.matriz, outro_no.matriz)
+
+    def __ne__(self, outro_no):
+        return not Matriz.compara_matrizes(self.matriz, outro_no.matriz)
+
+    def __lt__(self, outro_no):
+        return self.f < outro_no.f
+
+    def __gt__(self, outro_no):
+        return self.f > outro_no.f
+
+    def __le__(self, outro_no):
+        return self.f <= outro_no.f
+
+    def __ge__(self, outro_no):
+        return self.f >= outro_no.f
+
     def mostrar_resultado(self, nome_arquivo_log):
         no = self
         passo = 1
         movimentos = []           
         
         print("Passos para chegar no resultado:")   
-        while(no.node_pai != None):
+        while(no is not None and no.node_pai is not None):
             movimentos.append(no.movimento)
             no = no.node_pai
         if(len(movimentos) == 0):

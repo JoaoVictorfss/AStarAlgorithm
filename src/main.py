@@ -46,14 +46,13 @@ def coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2, nome_arquivo_log
     
     resultado(borda, matriz_obj, nome_arquivo_log)
       
-
 def resultado(borda, matriz_obj, nome_arquivo_log):
   result = None
   while(result is None and borda.qtd_gerados < MAX):
-    if(borda.tem_no_resultado(matriz_obj)):
-      result = borda.obter_no_resultado(matriz_obj)
+    primeiro_no = borda.obter_primeiro_no()
+    if(Matriz.compara_matrizes(matriz_obj, primeiro_no.matriz)):
+      result = primeiro_no
     else:
-      primeiro_no = borda.obter_primeiro_no()
       primeiro_no.expandir(borda)
     
   print("\n")
