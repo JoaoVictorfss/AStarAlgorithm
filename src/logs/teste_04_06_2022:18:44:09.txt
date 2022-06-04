@@ -1,0 +1,38 @@
+Teste iniciado em 04/06/2022 às 18:45:19
+
+Matriz objetivo:
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  8 |  0 |
+
+Matriz Inicial:
+| 0 |  2 |  3 |
+| 1 |  4 |  5 |
+| 7 |  8 |  6 |
+
+Resultado encontrado: 
+1 - Mova o branco para baixo
+| 1 |  2 |  3 |
+| 0 |  4 |  5 |
+| 7 |  8 |  6 |
+
+2 - Mova o branco para direita
+| 1 |  2 |  3 |
+| 4 |  0 |  5 |
+| 7 |  8 |  6 |
+
+3 - Mova o branco para direita
+| 1 |  2 |  3 |
+| 4 |  5 |  0 |
+| 7 |  8 |  6 |
+
+4 - Mova o branco para baixo
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  8 |  0 |
+
+Quantidade de nós criados: 13
+Quantidade de nós explorados: 10
+Quantidade de nós na borda: 5
+
+Tempo de execução: 70.18293476104736

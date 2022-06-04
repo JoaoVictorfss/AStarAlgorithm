@@ -1,0 +1,128 @@
+Teste iniciado em 04/06/2022 às 18:46:24
+
+Matriz objetivo:
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  8 |  0 |
+
+Matriz Inicial:
+| 0 |  1 |  2 |
+| 3 |  4 |  5 |
+| 6 |  7 |  8 |
+
+Resultado encontrado: 
+1 - Mova o branco para baixo
+| 3 |  1 |  2 |
+| 0 |  4 |  5 |
+| 6 |  7 |  8 |
+
+2 - Mova o branco para direita
+| 3 |  1 |  2 |
+| 4 |  0 |  5 |
+| 6 |  7 |  8 |
+
+3 - Mova o branco para direita
+| 3 |  1 |  2 |
+| 4 |  5 |  0 |
+| 6 |  7 |  8 |
+
+4 - Mova o branco para cima
+| 3 |  1 |  0 |
+| 4 |  5 |  2 |
+| 6 |  7 |  8 |
+
+5 - Mova o branco para esquerda
+| 3 |  0 |  1 |
+| 4 |  5 |  2 |
+| 6 |  7 |  8 |
+
+6 - Mova o branco para esquerda
+| 0 |  3 |  1 |
+| 4 |  5 |  2 |
+| 6 |  7 |  8 |
+
+7 - Mova o branco para baixo
+| 4 |  3 |  1 |
+| 0 |  5 |  2 |
+| 6 |  7 |  8 |
+
+8 - Mova o branco para baixo
+| 4 |  3 |  1 |
+| 6 |  5 |  2 |
+| 0 |  7 |  8 |
+
+9 - Mova o branco para direita
+| 4 |  3 |  1 |
+| 6 |  5 |  2 |
+| 7 |  0 |  8 |
+
+10 - Mova o branco para cima
+| 4 |  3 |  1 |
+| 6 |  0 |  2 |
+| 7 |  5 |  8 |
+
+11 - Mova o branco para cima
+| 4 |  0 |  1 |
+| 6 |  3 |  2 |
+| 7 |  5 |  8 |
+
+12 - Mova o branco para direita
+| 4 |  1 |  0 |
+| 6 |  3 |  2 |
+| 7 |  5 |  8 |
+
+13 - Mova o branco para baixo
+| 4 |  1 |  2 |
+| 6 |  3 |  0 |
+| 7 |  5 |  8 |
+
+14 - Mova o branco para esquerda
+| 4 |  1 |  2 |
+| 6 |  0 |  3 |
+| 7 |  5 |  8 |
+
+15 - Mova o branco para esquerda
+| 4 |  1 |  2 |
+| 0 |  6 |  3 |
+| 7 |  5 |  8 |
+
+16 - Mova o branco para cima
+| 0 |  1 |  2 |
+| 4 |  6 |  3 |
+| 7 |  5 |  8 |
+
+17 - Mova o branco para direita
+| 1 |  0 |  2 |
+| 4 |  6 |  3 |
+| 7 |  5 |  8 |
+
+18 - Mova o branco para direita
+| 1 |  2 |  0 |
+| 4 |  6 |  3 |
+| 7 |  5 |  8 |
+
+19 - Mova o branco para baixo
+| 1 |  2 |  3 |
+| 4 |  6 |  0 |
+| 7 |  5 |  8 |
+
+20 - Mova o branco para esquerda
+| 1 |  2 |  3 |
+| 4 |  0 |  6 |
+| 7 |  5 |  8 |
+
+21 - Mova o branco para baixo
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  0 |  8 |
+
+22 - Mova o branco para direita
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  8 |  0 |
+
+Quantidade de nós criados: 2267
+Quantidade de nós explorados: 1343
+Quantidade de nós na borda: 498
+
+Tempo de execução: 23.743185997009277
