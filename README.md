@@ -1,8 +1,8 @@
 # A* Algoritmo
-Algoritmo para resolução de um quebra cabeça 3x3
+Algoritmo utilizado para obter a resolução de um quebra cabeça 3x3
 <img src="https://github.com/JoaoVictorfss/AStarAlgorithm/blob/master/public/photos/Captura%20de%20tela%20de%202022-06-02%2022-48-53.png">
 
-##Para testar:
+## Para testar:
 1. Instale as dependências e execute o programa:
     ```
     $ pip3 install numpy
