@@ -6,6 +6,7 @@ from datetime import datetime
 import time
 
 MAX = 181440
+TAM_MATRIZ = 3
 
 def main():
     inicio = time.time()
@@ -16,7 +17,6 @@ def main():
     
     coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2, nome_arquivo_log, inicio)
     
-
 def coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2, nome_arquivo_log, inicio):
     print("\nDigite qual a heuristica para ser usada no jogo: ")
     print("  Distancia Euclidiana. (Digite 1)")
@@ -33,7 +33,7 @@ def coleta_dados_e_mostra_resultado(matriz_obj_1, matriz_obj_2, nome_arquivo_log
     matriz_escolha = int(input().strip())
 
     print("\nDigite a sequencia de números do jogo: ")
-    matriz_inicial = Matriz.crie_matriz(3)
+    matriz_inicial = Matriz.crie_matriz(TAM_MATRIZ)
     
     matriz_obj = matriz_obj_1 if matriz_escolha == 1 else matriz_obj_2
     borda = Border(int(num_h.strip()), matriz_obj)
@@ -59,6 +59,7 @@ def resultado(borda, matriz_obj, nome_arquivo_log, inicio):
       primeiro_no.expandir(borda)
     
   fim = time.time()
+  
   if(result is None):
     Log.escrever_em_log_criado(nome_arquivo_log, "\nNenhum resultado encontrado\n")
     print("\nsem resultado")
@@ -66,11 +67,9 @@ def resultado(borda, matriz_obj, nome_arquivo_log, inicio):
       Log.escrever_em_log_criado(nome_arquivo_log, "\nResultado encontrado: \n")
       result.mostrar_resultado(nome_arquivo_log)
       
-  horario = datetime.now()
   Log.escrever_em_log_criado(nome_arquivo_log, f"Quantidade de nós criados: {borda.qtd_gerados}\n")
   Log.escrever_em_log_criado(nome_arquivo_log, f"Quantidade de nós explorados: {borda.qtd_explorados}\n")
-  Log.escrever_em_log_criado(
-      nome_arquivo_log, f"Quantidade de nós na borda: {borda.total_de_nos()}\n")
+  Log.escrever_em_log_criado(nome_arquivo_log, f"Quantidade de nós na borda: {borda.total_de_nos()}\n")
   Log.escrever_em_log_criado(nome_arquivo_log, f"\nTempo de execução: {fim - inicio}\n")
 
   print(f"Quantidade de nós criados: {borda.qtd_gerados}")

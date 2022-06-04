@@ -39,7 +39,7 @@ class Matriz:
         for i in matriz_inicial:
             y = 0
             for j in i:
-                if(j == 0 ):
+                if(j == 0):
                     xb = x
                     yb = y
                     break

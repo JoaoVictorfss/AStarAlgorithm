@@ -4,6 +4,9 @@ from utils.Matriz import Matriz
 from utils.Heuristics import Heuristics
 from utils.Log import Log
 
+H1 = 1
+H2 = 2
+
 class Border :
   def __init__(self, h_escolhido, matriz_obj):
       self.__matriz_obj = matriz_obj
@@ -32,11 +35,10 @@ class Border :
      return self.__qtd_nos
 
   def __resultado_heuristica(self, no):
-      if(self.__h_escolhido == 1):
+      if(self.__h_escolhido == H1):
           no.h = Heuristics.h1(no.matriz, self.__matriz_obj)
-      elif(self.__h_escolhido == 2):
+      elif(self.__h_escolhido == H2):
           no.h = Heuristics.h2(no.matriz, self.__matriz_obj)
-    
       no.f = no.g + no.h
 
   def mostrar_matrizes_na_borda(self):
