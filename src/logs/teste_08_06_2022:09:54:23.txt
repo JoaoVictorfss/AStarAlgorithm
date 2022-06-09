@@ -1,0 +1,18 @@
+Teste iniciado em 08/06/2022 às 09:55:14
+
+Matriz objetivo:
+| 1 |  2 |  3 |
+| 4 |  5 |  6 |
+| 7 |  8 |  0 |
+
+Matriz Inicial:
+| 8 |  1 |  2 |
+| 0 |  4 |  3 |
+| 7 |  6 |  5 |
+
+Nenhum resultado encontrado
+Quantidade de nós criados: 181440
+Quantidade de nós explorados: 86180
+Quantidade de nós na borda: 18040
+
+Tempo de execução: 55548.564483881
